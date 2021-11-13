@@ -4,10 +4,10 @@ OPENCV=1
 OPENMP=1
 DEBUG=0
 
-ARCH= -gencode arch=compute_30,code=sm_30 \
-      -gencode arch=compute_35,code=sm_35 \
-      -gencode arch=compute_50,code=[sm_50,compute_50] \
-      -gencode arch=compute_52,code=[sm_52,compute_52]
+ARCH= -gencode arch=compute_50,code=sm_50
+#      -gencode arch=compute_35,code=sm_35 \
+#      -gencode arch=compute_50,code=[sm_50,compute_50] \
+#      -gencode arch=compute_52,code=[sm_52,compute_52]
 #      -gencode arch=compute_20,code=[sm_20,sm_21] \ This one is deprecated?
 
 # This is what I use, uncomment if you know your arch and want to specify
@@ -27,7 +27,7 @@ ARFLAGS=rcs
 OPTS=-Ofast
 LDFLAGS= -lm -pthread 
 COMMON= -Iinclude/ -Isrc/
-CFLAGS=-Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC
+CFLAGS=-Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Wno-deprecated-gpu-targets
 
 ifeq ($(OPENMP), 1) 
 CFLAGS+= -fopenmp
