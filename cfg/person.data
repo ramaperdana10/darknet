@@ -1,0 +1,5 @@
+classes= 1
+train  = cfg/person-train.txt
+valid  = cfg/person-test.txt
+names = data/person.names
+backup = backup
